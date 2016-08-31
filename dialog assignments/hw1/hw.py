@@ -33,6 +33,8 @@ print "Person2 says "+str(len(person2.split()))+" words"
 print "Person1 says "+str(len(person1.split())/count1)+" words on an average per turn"
 print "Person2 says "+str(len(person2.split())/count2)+" words on an average per turn"
 print "Average length of words spoken by Person1 is: "+str(len(re.sub(' ', '', person1))/len(person1.split()))
+print "Average length of words spoken by Person2 is: "+str(len(re.sub(' ', '', person2))/len(person2.split()))
+
 
 
 
