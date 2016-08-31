@@ -30,10 +30,10 @@ print "Person1 makes "+str(count1)+ " dialogue turns"
 print "Person2 makes "+str(count2)+ " dialogue turns"
 print "Person1 says "+str(len(person1.split()))+" words"
 print "Person2 says "+str(len(person2.split()))+" words"
-print "Person1 says "+str(len(person1.split())/count1)+" words on an average per turn"
-print "Person2 says "+str(len(person2.split())/count2)+" words on an average per turn"
-print "Average length of words spoken by Person1 is: "+str(len(re.sub(' ', '', person1))/len(person1.split()))
-print "Average length of words spoken by Person2 is: "+str(len(re.sub(' ', '', person2))/len(person2.split()))
+print "Person1 says "+str(round(len(person1.split())/float(count1),2))+" words on an average per turn"
+print "Person2 says "+str(round(len(person2.split())/float(count2),2))+" words on an average per turn"
+print "Average length of words spoken by Person1 is: "+str(round(len(re.sub(' ', '', person1))/float(len(person1.split())),2))
+print "Average length of words spoken by Person2 is: "+str(round(len(re.sub(' ', '', person2))/float(len(person2.split())),2))
 
 
 
