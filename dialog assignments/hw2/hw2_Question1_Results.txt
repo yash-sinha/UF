@@ -1,0 +1,51 @@
+>>> import re, string
+>>> inputfile = open("D:/geets_data/script.txt")
+>>> script=inputfile.read()
+>>> # We are removing special effects like [laugh],etc in square brackets using regex before analysing script.
+>>> script = re.sub("\[[^]]*\]", "",script)
+>>> utterance1 = speaker1.split("LADY TORMINSTER")
+>>> countContainingWord1 = 0
+>>> countNotContainingWord1 = 0
+>>> for utterance in utterance1:
+	if " you " in utterance:
+		countContainingWord1 = countContainingWord1 + 1
+		
+	if " you " not in utterance and "" != utterance:
+		countNotContainingWord1 = countNotContainingWord1 + 1
+
+		
+>>> print "number of utterances of speaker1 having word you "+str(countContainingWord1)
+number of utterances of speaker1 having word you 33
+>>> utterance2 = speaker2.split("SIR GEOFFREY:")
+>>> countNotContainingWord2 = 0
+>>> countContainingWord2 = 0
+>>> for utterance in utterance2:
+	if " you " not in utterance and "" != utterance:
+		countNotContainingWord2 = countNotContainingWord2 + 1
+		
+	if " you " in utterance and "" != utterance:
+		countContainingWord2 = countContainingWord2 + 1
+
+		
+>>> print "number of utterances of speaker2 having word you "+str(countContainingWord2)
+number of utterances of speaker2 having word you 26
+>>> print "number of utterances of speaker1 not having word you "+str(countNotContainingWord1)
+number of utterances of speaker1 not having word you 56
+>>> print "number of utterances of speaker2 not having word you "+str(countNotContainingWord2)
+number of utterances of speaker2 not having word you 63
+>>> print "P(u is from Speaker 1) is "+ str(round(float(count1)/float(count1+count2),2))
+P(u is from Speaker 1) is 0.5
+>>> print "P(u is from Speaker 2) is "+ str(round(float(count2)/float(count1+count2),2))
+P(u is from Speaker 2) is 0.5
+>>> print "P(u contains "" you "" | u is from Speaker 1)" + str(float(countContainingWord1)/float(count1))
+P(u contains  you  | u is from Speaker 1)0.370786516854
+>>> print "P(u contains "" you "" | u is from Speaker 2)" + str(float(countContainingWord2)/float(count2))
+P(u contains  you  | u is from Speaker 2)0.292134831461
+>>> print "P(u being from Speaker 1 | u contains "" you "")" + str(float(countContainingWord1)/float(countContainingWord1+countContainingWord2))
+P(u being from Speaker 1 | u contains  you )0.559322033898
+>>> print "P(u being from Speaker 1 | u does not contain "" you "")" + str(float(countNotContainingWord1)/float(countNotContainingWord1+countNotContainingWord2))
+P(u being from Speaker 1 | u does not contain  you )0.470588235294
+>>> print "P(u being from Speaker 2 | u contains "" you "")" + str(float(countContainingWord2)/float(countContainingWord1+countContainingWord2))
+P(u being from Speaker 2 | u contains  you )0.440677966102
+>>> print countNotContainingWord1
+56
