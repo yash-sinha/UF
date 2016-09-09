@@ -1,4 +1,4 @@
-# max.R
+# sd.R
 # Fetch command line arguments
 myArgs <- commandArgs(trailingOnly = TRUE)
 

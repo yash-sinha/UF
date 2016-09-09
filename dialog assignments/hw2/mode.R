@@ -1,4 +1,4 @@
-# max.R
+# mode.R
 # Fetch command line arguments
 myArgs <- commandArgs(trailingOnly = TRUE)
 
@@ -6,4 +6,5 @@ myArgs <- commandArgs(trailingOnly = TRUE)
 nums = as.numeric(myArgs)
 
 # cat will write the result to the stdout stream
-cat(mode(nums))
+uninums <- unique(nums)
+cat(uninums[which.max(tabulate(match(nums, uninums)))])
