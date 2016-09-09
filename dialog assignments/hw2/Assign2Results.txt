@@ -1,0 +1,19 @@
+Speaker 1 identifier is -> lady torminster:
+Speaker 2 identifier is -> sir geoffrey:
+Most common word in Person 1's corpus ['you']
+Most common word in Person 2's corpus ['the']
+Most common word in corpus ['you']
+Most common bigram in corpus [(('in', 'the'), 20)]
+Most common trigram in corpus [(('do', 'you', 'know'), 4)]
+Count of utterances of speaker 1 is 89
+Count of utterances spoken by sp2 after utterance of sp1 88
+Probability that Speaker 2 will speak after Speaker 1 is 0.988764044944
+Median of words spoken by Speaker 1 is 7
+Median of words spoken by Speaker 2 is 14
+Mode of words spoken by Speaker 1 is 5
+Mode of words spoken by Speaker 2 is 1
+Standard deviation of number of utterances of Speaker 1 from R is 22.04714
+Standard deviation of number of utterances of Speaker 1 after correction of sqrt((N-1)/N): 21.9229297722
+Standard deviation of number of utterances of Speaker 2 from R is 22.54888
+Standard deviation of number of utterances of Speaker 2 after correction of sqrt((N-1)/N): 22.4218430455
+Histogram to be created from values provided in file_p1 for Speaker 1 and file_p2 for Speaker 2
