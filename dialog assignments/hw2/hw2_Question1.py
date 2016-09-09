@@ -1,23 +1,43 @@
 import re, string
-inputfile = open("D:/geets_data/script.txt")
+inputfile = open("script.txt")
 script=inputfile.read()
 # We are removing special effects like [laugh],etc in square brackets using regex before analysing script.
+text = script.split('\n')
+utt=0
+for item in text:
+	if len(item) is not 0:
+		utt=utt+1
+		sp1_identifier=''.join(item)
+		position = sp1_identifier.index(':')
+		sp1_identifier=sp1_identifier[:position+1]
+		break
+newUtt=0
+for item in text:
+	if len(item) is not 0:
+		newUtt=newUtt+1
+		if newUtt is not utt:
+			utt=utt+1
+			sp2_identifier=''.join(item)
+			position = sp2_identifier.index(':')
+			sp2_identifier=sp2_identifier[:position+1]
+			break
+		
 script = re.sub("\[[^]]*\]", "",script)
-count1 = script.count("LADY TORMINSTER:")
-count2 = script.count("SIR GEOFFREY:")
+count1 = script.count("sp1_identifier")
+count2 = script.count("sp2_identifier")
 utterances = script.splitlines()
 speaker1=""
 speaker2=""
 for uttr in utterances:
-	if "LADY TORMINSTER:" in uttr:
+	if sp1_identifier in uttr:
 		speaker1=speaker1+uttr
-	if "SIR GEOFFREY:" in uttr:
+	if sp2_identifier in uttr:
 		speaker2=speaker2+uttr
 		
 # We are separating the utterance spoken by speaker 1 and 2 using variable utterance1 and utterance2
 # we have taken word as "you" and counters of utterances containing or not containing word for 1 and 2 are taken respectively. 
 
-utterance1 = speaker1.split("LADY TORMINSTER")
+utterance1 = speaker1.split(sp1_identifier)
 countContainingWord1 = 0
 countNotContainingWord1 = 0
 for utterance in utterance1:
@@ -28,7 +48,7 @@ for utterance in utterance1:
 		countNotContainingWord1 = countNotContainingWord1 + 1
 		
 
-utterance2 = speaker2.split("SIR GEOFFREY:")
+utterance2 = speaker2.split(sp2_identifier)
 countNotContainingWord2 = 0
 countContainingWord2 = 0
 for utterance in utterance2:
